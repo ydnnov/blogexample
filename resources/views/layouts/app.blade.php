@@ -7,6 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
+    @stack('scripts')
 </head>
 <body class="flex flex-col min-h-screen">
 <livewire:app-layout.header />

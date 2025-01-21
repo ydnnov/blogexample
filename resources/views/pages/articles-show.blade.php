@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@push('scripts')
+    <script>
+        setTimeout(() => {
+            axios.post('/articles/{{$article->id}}/increment-num-views');
+        }, 5000);
+    </script>
+@endpush
+
 @section('content')
     <img
         src="{{ asset($article->imageUrl) }}"
