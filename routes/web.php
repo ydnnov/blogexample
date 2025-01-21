@@ -8,7 +8,7 @@ Route::name('home')
         return view('pages.home');
     });
 
-Route::name('articles-list')
+Route::name('articles.list')
     ->get('/articles', function () {
         return view('pages.articles-list');
     });
@@ -16,8 +16,8 @@ Route::name('articles-list')
 Route::name('articles.show')
     ->get('articles/{slug}', [ArticleController::class, 'show']);
 
-Route::name('increment-num-views')
+Route::name('articles.increment-views')
     ->post('articles/{id}/increment-num-views', [ArticleController::class, 'incrementNumViews']);
 
-Route::name('increment-num-likes')
+Route::name('articles.increment-likes')
     ->post('articles/{id}/increment-num-likes', [ArticleController::class, 'incrementNumLikes']);
