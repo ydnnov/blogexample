@@ -4,24 +4,42 @@ namespace App\Livewire\Article;
 
 use App\Models\Article;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ArticlesList extends Component
 {
-    public $articles;
+    use WithPagination;
+
     public $layout;
+    public $isPaginated;
+    public $count;
 
     /**
+     * Инициализация компонента
+     *
      * @param int $count
-     * @param string $layout 'cards' or 'rows'
+     * @param string $layout 'cards' или 'rows'
+     * @param bool $isPaginated
      */
-    public function mount($count, $layout)
+    public function mount($count, $layout, $isPaginated = false)
     {
+        $this->count = $count;
         $this->layout = $layout;
-        $this->articles = Article::latest()->take($count)->get();
+        $this->isPaginated = $isPaginated;
     }
 
     public function render()
     {
-        return view('livewire.article.articles-list-' . $this->layout);
+        $query = Article::latest();
+
+        if ($this->isPaginated) {
+            $articles = $query->paginate($this->count);
+        } else {
+            $articles = $query->take($this->count)->get();
+        }
+
+        return view('livewire.article.articles-list-' . $this->layout, [
+            'articles' => $articles,
+        ]);
     }
 }
