@@ -30,7 +30,7 @@ class ArticlesList extends Component
 
     public function render()
     {
-        $query = Article::latest();
+        $query = Article::latest()->with(['tags']);
 
         if ($this->isPaginated) {
             $articles = $query->paginate($this->count);

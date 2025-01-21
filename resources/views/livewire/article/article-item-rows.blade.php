@@ -27,11 +27,22 @@
         <p class="mt-2">
             {{ Str::limit($article->content, 100) }}
         </p>
-        <div class="flex mt-auto">
-            <a
-                class="ml-auto my-4 text-blue-700 hover:underline"
-                href="{{ route('articles.show', $article->slug) }}"
-            >Читать дальше</a>
+        <div class="flex mt-auto mb-2">
+            @if ($article->tags->count())
+                <div class="flex flex-wrap gap-2 mb-2">
+                    @foreach ($article->tags as $tag)
+                        <div
+                            class="rounded-[100px] bg-gray-300 px-2 py-1 text-[80%] whitespace-nowrap"
+                        >{{ $tag->label }}</div>
+                    @endforeach
+                </div>
+            @endif
+            <div class="flex ml-auto mt-2">
+                <a
+                    class="text-blue-700 hover:underline"
+                    href="{{ route('articles.show', $article->slug) }}"
+                >Читать дальше</a>
+            </div>
         </div>
     </div>
 </div>

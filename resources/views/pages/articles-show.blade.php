@@ -24,6 +24,15 @@
                 </div>
             </div>
         </div>
+        @if ($article->tags->count())
+            <div class="flex flex-wrap gap-2 my-4">
+                @foreach ($article->tags as $tag)
+                    <div
+                        class="rounded-[100px] bg-gray-300 px-2 py-1 text-[80%] whitespace-nowrap"
+                    >{{ $tag->label }}</div>
+                @endforeach
+            </div>
+        @endif
         <p class="my-2">
             {{ $article->content }}
         </p>

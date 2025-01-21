@@ -27,6 +27,15 @@
         <p class="mt-2">
             {{ Str::limit($article->content, 100) }}
         </p>
+        @if ($article->tags->count())
+            <div class="pt-4 flex flex-wrap gap-2">
+                @foreach ($article->tags as $tag)
+                    <div
+                        class="rounded-[100px] bg-gray-300 px-2 py-1 text-[80%] whitespace-nowrap"
+                    >{{ $tag->label }}</div>
+                @endforeach
+            </div>
+        @endif
         <div class="flex mt-auto border-black border-[px]">
             <a
                 class="ml-auto my-4 text-blue-700 hover:underline"
