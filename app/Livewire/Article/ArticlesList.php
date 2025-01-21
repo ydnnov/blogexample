@@ -12,7 +12,7 @@ class ArticlesList extends Component
 
     /**
      * @param int $count
-     * @param string $layout 'brief' or 'full'
+     * @param string $layout 'cards' or 'rows'
      */
     public function mount($count, $layout)
     {

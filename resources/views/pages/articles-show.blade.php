@@ -7,9 +7,9 @@
         alt="{{ $article->title }}"
     >
     <div class="flex flex-col p-4 h-full">
-        <h5 class="">
+        <h1 class="">
             {{ $article->title }}
-        </h5>
+        </h1>
         <div class="flex pt-2 w-[200px]">
             <div class="flex items-center">
                 <livewire:article.like-button :article="$article" />

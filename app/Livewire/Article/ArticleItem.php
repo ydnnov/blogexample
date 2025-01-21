@@ -3,7 +3,6 @@
 namespace App\Livewire\Article;
 
 use App\Models\Article;
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Component;
 
 class ArticleItem extends Component
@@ -13,7 +12,7 @@ class ArticleItem extends Component
 
     /**
      * @param Article $article
-     * @param string $layout 'brief' or 'full'
+     * @param string $layout 'cards' or 'rows'
      */
     public function mount(Article $article, $layout)
     {

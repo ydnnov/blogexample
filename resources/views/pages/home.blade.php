@@ -8,7 +8,7 @@
     </div>
     <div class="py-4">
         <div class="w-[800px] justify-self-center">
-            <livewire:article.articles-list :count="6" layout="brief" />
+            <livewire:article.articles-list :count="6" layout="cards" />
         </div>
     </div>
 @endsection
