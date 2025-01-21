@@ -3,7 +3,7 @@
 @push('scripts')
     <script>
         setTimeout(() => {
-            axios.post('/articles/{{$article->id}}/increment-num-views');
+            client.article.incrementViews(@js($article->id));
         }, 5000);
     </script>
 @endpush
@@ -20,10 +20,7 @@
         </h1>
         <div class="flex pt-2 w-[200px]">
             <div class="flex items-center">
-                <livewire:article.like-button :article="$article" />
-                <div class="ml-1">
-                    {{ $article->num_likes }}
-                </div>
+                <livewire:article.likes-control :article="$article" />
             </div>
             <div class="flex items-center ml-auto">
                 <x-heroicon-o-eye class="size-[24px]" />

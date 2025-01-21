@@ -3,10 +3,9 @@
 namespace App\Livewire\Article;
 
 use App\Models\Article;
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Component;
 
-class LikeButton extends Component
+class LikesControl extends Component
 {
     public $article;
 
@@ -20,11 +19,6 @@ class LikeButton extends Component
 
     public function render()
     {
-        return view('livewire.article.like-button');
-    }
-
-    public function like()
-    {
-        Debugbar::info('liked article: ' . $this->article->title);
+        return view('livewire.article.likes-control', ['article' => $this->article]);
     }
 }

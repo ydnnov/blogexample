@@ -18,3 +18,6 @@ Route::name('articles.show')
 
 Route::name('increment-num-views')
     ->post('articles/{id}/increment-num-views', [ArticleController::class, 'incrementNumViews']);
+
+Route::name('increment-num-likes')
+    ->post('articles/{id}/increment-num-likes', [ArticleController::class, 'incrementNumLikes']);

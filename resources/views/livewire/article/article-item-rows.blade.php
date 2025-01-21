@@ -18,10 +18,7 @@
                 </div>
             </div>
             <div class="flex ml-auto items-center">
-                <livewire:article.like-button :article="$article" />
-                <div class="ml-1">
-                    {{ $article->num_likes }}
-                </div>
+                <livewire:article.likes-control :article="$article" />
             </div>
         </div>
         <p class="mt-2">

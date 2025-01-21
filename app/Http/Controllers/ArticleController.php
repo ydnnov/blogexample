@@ -25,4 +25,10 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $this->articleService->incrementNumViews($article->id);
     }
+
+    public function incrementNumLikes(int $id)
+    {
+        $article = Article::findOrFail($id);
+        $this->articleService->incrementNumLikes($article->id);
+    }
 }
