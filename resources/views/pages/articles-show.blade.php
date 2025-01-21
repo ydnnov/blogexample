@@ -12,9 +12,7 @@
         </h5>
         <div class="flex pt-2 w-[200px]">
             <div class="flex items-center">
-                <div wire:click="like">
-                    <x-heroicon-o-heart class="size-[24px] cursor-pointer" />
-                </div>
+                <livewire:article.like-button :article="$article" />
                 <div class="ml-1">
                     {{ $article->num_likes }}
                 </div>

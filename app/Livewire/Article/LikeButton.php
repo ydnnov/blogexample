@@ -6,23 +6,25 @@ use App\Models\Article;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Component;
 
-class ArticleItem extends Component
+class LikeButton extends Component
 {
     public $article;
-    public $layout;
 
     /**
      * @param Article $article
-     * @param string $layout 'brief' or 'full'
      */
-    public function mount(Article $article, $layout)
+    public function mount(Article $article)
     {
         $this->article = $article;
-        $this->layout = $layout;
     }
 
     public function render()
     {
-        return view('livewire.article.article-item-' . $this->layout);
+        return view('livewire.article.like-button');
+    }
+
+    public function like()
+    {
+        Debugbar::info('liked article: ' . $this->article->title);
     }
 }
