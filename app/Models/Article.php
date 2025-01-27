@@ -18,6 +18,11 @@ class Article extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(ArticleComment::class);
+    }
+
     public function getImageUrlAttribute()
     {
         // https://loremflickr.com/300/200

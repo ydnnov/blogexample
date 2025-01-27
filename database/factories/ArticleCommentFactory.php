@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
  */
-class ArticleFactory extends Factory
+class ArticleCommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,8 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence($this->faker->numberBetween(3, 6)),
+            'subject' => $this->faker->sentence($this->faker->numberBetween(3, 6)),
             'content' => $this->faker->paragraph,
-            'num_views' => $this->faker->numberBetween(10, 10000),
-            'num_likes' => $this->faker->numberBetween(10, 10000),
         ];
     }
 }
